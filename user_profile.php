@@ -47,11 +47,13 @@ $orders = [
         <div class="account-settings">
             <h3>Account Settings</h3>
             <ul>
+                <form method="post">
                 <li><a href="auth/editprofile.php">Edit Profile</a></li>
-                <li><a href="../auth/update_password.php">Change Password</a></li>
+                <li><a href="./auth/update_password.php" name="pass">Change Password</a></li>
                 <li><a href="#">Manage Addresses</a></li>
                 <li><a href="#">Payment Methods</a></li>
                 <li><a href="#">Logout</a></li>
+                </form>
             </ul>
         </div>
     </div>

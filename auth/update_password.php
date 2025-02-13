@@ -9,23 +9,23 @@ if (!isset($_SESSION['user_id'])) {
 
 $user_id = $_SESSION['user_id'];
 
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
+if (isset($_POST['pass'])) {
     $current_password = $_POST['current_password'] ?? '';
     $new_password = $_POST['new_password'] ?? '';
     $confirm_password = $_POST['confirm_password'] ?? '';
 
     // Validate passwords
-    if (empty($current_password) || empty($new_password) || empty($confirm_password)) {
-        die(json_encode(["status" => "error", "message" => "All fields are required."]));
-    }
+    // if (empty($current_password) || empty($new_password) || empty($confirm_password)) {
+    //     die(json_encode(["status" => "error", "message" => "All fields are required."]));
+    // }
 
-    if (strlen($new_password) < 6) {
-        die(json_encode(["status" => "error", "message" => "New password must be at least 6 characters long."]));
-    }
+    // if (strlen($new_password) < 6) {
+    //     die(json_encode(["status" => "error", "message" => "New password must be at least 6 characters long."]));
+    // }
 
-    if ($new_password !== $confirm_password) {
-        die(json_encode(["status" => "error", "message" => "New password and confirm password do not match."]));
-    }
+    // if ($new_password !== $confirm_password) {
+    //     die(json_encode(["status" => "error", "message" => "New password and confirm password do not match."]));
+    // }
 
     try {
         // Fetch current password hash from DB
