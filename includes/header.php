@@ -14,7 +14,7 @@ define("BASE_URL", "http://localhost/Sphatik-v1/");
             <ul class="nav-list">
                 <li class="lsit-item"><a href="<?= BASE_URL ?>index.php" style="text-decoration: none;">Home</a></li>
                 <li class="lsit-item"><a href="<?= BASE_URL ?>courses/courses.php">Courses</a></li>
-                <li class="lsit-item"><a href="<?= BASE_URL ?>freelance.php">Freelance</a></li>
+                <li class="lsit-item"><a href="<?= BASE_URL ?>freelancee.php">Freelance</a></li>
                 <li class="lsit-item"><a href="<?= BASE_URL ?>services.php">Local Services</a></li>
                 <?php if (isset($_SESSION['user_id'])): ?>
                     <li class="lsit-item"><a href="<?= BASE_URL ?>profile.php">Profile</a></li>
