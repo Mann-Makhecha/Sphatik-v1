@@ -58,9 +58,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $pdo->beginTransaction();
 
             // Insert user
-            $stmt = $pdo->prepare("INSERT INTO users (name, email, password_hash, role) VALUES (?, ?, ?, ?)");
+            $stmt = $pdo->prepare("INSERT INTO users (name, email,phone, password_hash, role) VALUES (?, ?, ?, ?)");
             $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-            $stmt->execute([$name, $email, $hashed_password, $role]);
+            $stmt->execute([$name, $email, $phone,$hashed_password, $role]);
 
             $user_id = $pdo->lastInsertId();
 
@@ -143,6 +143,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <option value="freelancer" <?php echo (isset($_POST['role']) && $_POST['role'] === 'freelancer') ? 'selected' : ''; ?>>Freelancer</option>
                         <option value="delivery_partner" <?php echo (isset($_POST['role']) && $_POST['role'] === 'delivery_partner') ? 'selected' : ''; ?>>Delivery Partner</option>
                         <option value="service_provider" <?php echo (isset($_POST['role']) && $_POST['role'] === 'service_provider') ? 'selected' : ''; ?>>Service Provider</option>
+                        <option value="instructer" <?php echo (isset($_POST['role']) && $_POST['role'] === 'instructer') ? 'selected' : ''; ?>>Instructer</option>
                     </select>
                 </div>
 
