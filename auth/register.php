@@ -23,6 +23,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $role = sanitizeInput($_POST['role']);
     $full_name = sanitizeInput($_POST['full_name']);
     $phone = sanitizeInput($_POST['phone']);
+    $address = htmlspecialchars(trim($_POST['address']));
+
 
     // Validation checks
     if (empty($name) || strlen($name) < 3) {
@@ -48,6 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Check if username or email already exists
     $stmt = $pdo->prepare("SELECT COUNT(*) FROM users WHERE name = ? OR email = ?");
     $stmt->execute([$name, $email]);
+    
     if ($stmt->fetchColumn() > 0) {
         $errors[] = "Username or email already exists";
     }
@@ -65,8 +68,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $user_id = $pdo->lastInsertId();
 
             // Insert user profile
-            $stmt = $pdo->prepare("INSERT INTO user_profiles (user_id, full_name, phone) VALUES (?, ?, ?)");
-            $stmt->execute([$user_id, $full_name, $phone]);
+            $stmt = $pdo->prepare("INSERT INTO user_profiles (user_id, full_name, phone, address) VALUES (?, ?, ?, ?)");
+$stmt->execute([$user_id, $full_name, $phone, $address]);
+
 
             $pdo->commit();
             $_SESSION['success_message'] = 'Registration successful! Please login.';
@@ -136,6 +140,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
 
                 <div class="form-group">
+                    <label for="address">Address *</label>
+                    <input type="text" id="address" name="address" required>
+                </div>
+
+
+                <div class="form-group">
                     <label for="role">Register as *</label>
                     <select id="role" name="role" required>
                         <option value="">Select Role</option>
@@ -168,5 +178,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <script src="../js/main.js"></script>
 </body>
-
 </html>

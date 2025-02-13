@@ -1,11 +1,18 @@
 <?php
 // Dummy user data (Replace with actual database data)
 $user = [
-    "name" => "Dhiraj Jagwani",
-    "email" => "jagwanidhiraj22@gmail.com",
-    "phone" => "8866596787",
-    "address" => "Gujarat,Ahmedabad",
-    "joined" => "January 2025"
+    "name" => "John Doe",
+    "email" => "johndoe@example.com",
+    "phone" => "+1 234 567 890",
+    "address" => "1234 Elm Street, Springfield, USA",
+    "joined" => "January 2021"
+];
+
+// Dummy order history
+$orders = [
+    ["order_id" => "ORD12345", "date" => "2025-02-10", "status" => "Delivered", "amount" => "$120.00"],
+    ["order_id" => "ORD67890", "date" => "2025-01-25", "status" => "Shipped", "amount" => "$45.50"],
+    ["order_id" => "ORD54321", "date" => "2025-01-15", "status" => "Pending", "amount" => "$78.99"]
 ];
 ?>
 <!DOCTYPE html>
