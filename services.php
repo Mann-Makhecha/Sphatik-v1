@@ -35,11 +35,11 @@
                     <h3>Car Repair</h3>
                     <p>Skilled mechanics for vehicle maintenance.</p>
                 </div>
-                <div class="service-card">
+                <a href="paint.php" class="service-card">
                     <i class="fas fa-paint-roller"></i>
                     <h3>Painting</h3>
                     <p>Hire expert painters for home and office.</p>
-                </div>
+                </a>
                 <a href="salon_service.php" class="service-card">
                     <i class="fas fa-cut"></i>
                     <h3>Salon</h3>
