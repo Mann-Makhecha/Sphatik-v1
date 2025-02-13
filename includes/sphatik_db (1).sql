@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 13, 2025 at 06:42 AM
+-- Generation Time: Feb 13, 2025 at 05:24 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -41,7 +41,9 @@ CREATE TABLE `completed_projects` (
 
 INSERT INTO `completed_projects` (`id`, `project_name`, `client_name`, `completion_date`, `description`) VALUES
 (1, 'Database Management system', '', '2014-01-03', 'hi'),
-(2, 'Microprocessor ', '', '2024-06-03', 'DOne');
+(2, 'Microprocessor ', '', '2024-06-03', 'DOne'),
+(3, 'Database Management System', '', '2024-06-03', 'HI'),
+(4, 'hi', '', '2039-02-03', 'hi');
 
 -- --------------------------------------------------------
 
@@ -64,7 +66,7 @@ CREATE TABLE `courses` (
 
 INSERT INTO `courses` (`id`, `img_src`, `title`, `description`, `enroll_link`, `college_name`) VALUES
 (1, '../includes/images/dcn.jpg', 'Data Communication and Networking', 'Short description of the course.', 'dcn.php', 'College Name'),
-(2, '../includes/images/dbms.jpg', 'Database Management System', 'Short description of the course.', '#', 'College Name'),
+(2, '../includes/images/dbms.jpg', 'Database Management System', 'Short description of the course.', 'dbms.php\r\n', 'College Name'),
 (3, '../includes/images/mit.png', 'Microprocessor and Interfacing Techniques', 'Short description of the course.', 'mit.php', 'College Name'),
 (4, '../includes/images/os.jpg', 'Operating System', 'Short description of the course.', 'course-details.php?id=2', 'College Name'),
 (5, '../includes/images/python.jpg', 'Python Programming', 'Short description of the course.', 'course-details.php?id=2', 'College Name'),
@@ -125,19 +127,22 @@ CREATE TABLE `users` (
   `password_hash` varchar(255) NOT NULL,
   `role` enum('normal_user','delivery_partner','employer','instructor','admin') NOT NULL,
   `verified` tinyint(1) DEFAULT 0,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `address` varchar(255) NOT NULL DEFAULT '',
+  `joined` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`user_id`, `name`, `email`, `phone`, `password_hash`, `role`, `verified`, `created_at`) VALUES
-(1, 'dhiru', 'dhiru12@mail.com', '', '$2y$10$jAtLcoiR./z5UEsn3EHnoeSUz7fTXVamZYTd7zzaTh/VXLFmyjO6q', '', 0, '2025-02-12 03:51:49'),
-(7, 'kishu', 'krish12@mail.com', '', '$2y$10$Z.4ULlM4T9IHQA.J9QKHDejL6rgDsog9Erx0hEh4rA6OFEQT91pui', 'delivery_partner', 0, '2025-02-12 04:35:25'),
-(8, 'hello', 'hello@mail.com', '', '$2y$10$L490hRCx6EeuYqvFfhTbKO2Y9DqCwVSPhqIEulEU7J/I5bR6RZOZ2', '', 0, '2025-02-12 16:52:01'),
-(9, 'acb', 'abc@mail.com', '', '$2y$10$4Sr4YETP0o5D5CGQs9lDbeB2r9OgPE6dgIlD796Dp5YCuJRFJRrl.', 'delivery_partner', 0, '2025-02-12 16:58:11'),
-(10, 'qwe', 'qwe@mail.com', '', '$2y$10$axDT5GaNk/aRD2UXwNCPuegS7F9m7TG5KFUjTj.tBXA1.PoNBFqTa', '', 0, '2025-02-12 16:59:08');
+INSERT INTO `users` (`user_id`, `name`, `email`, `phone`, `password_hash`, `role`, `verified`, `created_at`, `address`, `joined`) VALUES
+(1, 'dhiru', 'dhiru12@mail.com', '', '$2y$10$jAtLcoiR./z5UEsn3EHnoeSUz7fTXVamZYTd7zzaTh/VXLFmyjO6q', '', 0, '2025-02-12 03:51:49', '', '2025-02-13 14:16:22'),
+(7, 'kishu', 'krish12@mail.com', '', '$2y$10$Z.4ULlM4T9IHQA.J9QKHDejL6rgDsog9Erx0hEh4rA6OFEQT91pui', 'delivery_partner', 0, '2025-02-12 04:35:25', '', '2025-02-13 14:16:22'),
+(8, 'hello', 'hello@mail.com', '', '$2y$10$L490hRCx6EeuYqvFfhTbKO2Y9DqCwVSPhqIEulEU7J/I5bR6RZOZ2', '', 0, '2025-02-12 16:52:01', '', '2025-02-13 14:16:22'),
+(9, 'acb', 'abc@mail.com', '', '$2y$10$4Sr4YETP0o5D5CGQs9lDbeB2r9OgPE6dgIlD796Dp5YCuJRFJRrl.', 'delivery_partner', 0, '2025-02-12 16:58:11', '', '2025-02-13 14:16:22'),
+(10, 'qwe', 'qwe@mail.com', '', '$2y$10$axDT5GaNk/aRD2UXwNCPuegS7F9m7TG5KFUjTj.tBXA1.PoNBFqTa', '', 0, '2025-02-12 16:59:08', '', '2025-02-13 14:16:22'),
+(11, 'TeenBucket66761', 'kaifmansuri8141@gmail.com', '', '$2y$10$fRz8fYo20TzLIXEop5BorOwzUdj10PaW7QRgbnEKz9o1GsAUGAD0i', '', 0, '2025-02-13 07:37:56', '', '2025-02-13 14:16:22');
 
 -- --------------------------------------------------------
 
@@ -161,7 +166,8 @@ INSERT INTO `user_profiles` (`profile_id`, `user_id`, `full_name`, `phone`) VALU
 (2, 7, 'Krish Jain', '8200700139'),
 (3, 8, 'mannn', '8564213955'),
 (4, 9, 'abc', '9876543210'),
-(5, 10, 'qwe', '0123654789');
+(5, 10, 'qwe', '0123654789'),
+(6, 11, 'Mansuri Kaif', '5142946047');
 
 --
 -- Indexes for dumped tables
@@ -217,7 +223,7 @@ ALTER TABLE `user_profiles`
 -- AUTO_INCREMENT for table `completed_projects`
 --
 ALTER TABLE `completed_projects`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `courses`
@@ -241,13 +247,13 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `user_profiles`
 --
 ALTER TABLE `user_profiles`
-  MODIFY `profile_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `profile_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables
