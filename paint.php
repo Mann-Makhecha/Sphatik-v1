@@ -21,7 +21,7 @@ session_start();
         <h2>Our Painting Services</h2>
         <div class="service-list">
             <div class="service-card">
-                <img src="./includes/images/interior.jpg" alt="Interior Painting">
+                <img src="./includes/int.jpg" alt="Interior Painting">
                 <div class="service-info">
                     <h3>Interior Painting</h3>
                     <p>Get a smooth, high-quality finish for your walls.</p>
@@ -29,7 +29,7 @@ session_start();
                 </div>
             </div>
             <div class="service-card">
-                <img src="./includes/images/exterior.jpg" alt="Exterior Painting">
+                <img src="./includes/ext.webp" alt="Exterior Painting">
                 <div class="service-info">
                     <h3>Exterior Painting</h3>
                     <p>Weather-resistant paint to protect your home.</p>
@@ -37,7 +37,7 @@ session_start();
                 </div>
             </div>
             <div class="service-card">
-                <img src="./includes/images/text.jpg" alt="Texture Painting">
+                <img src="./includes/text.jpg" alt="Texture Painting">
                 <div class="service-info">
                     <h3>Texture Painting</h3>
                     <p>Creative textures to enhance your walls.</p>
@@ -45,7 +45,7 @@ session_start();
                 </div>
             </div>
             <div class="service-card">
-                <img src="./includes/images/wood.jpg" alt="Wood Painting">
+                <img src="./includes/wood.jpg" alt="Wood Painting">
                 <div class="service-info">
                     <h3>Wood Painting</h3>
                     <p>Polishing & painting for wooden furniture.</p>
@@ -53,7 +53,7 @@ session_start();
                 </div>
             </div>
             <div class="service-card">
-                <img src="./includes/images/metal.jpg" alt="Metal Painting">
+                <img src="./includes/metal.jpeg" alt="Metal Painting">
                 <div class="service-info">
                     <h3>Metal Painting</h3>
                     <p>Rust-proof painting for metallic structures.</p>
@@ -61,7 +61,7 @@ session_start();
                 </div>
             </div>
             <div class="service-card">
-                <img src="./includes/images/waterproof.jpg" alt="Waterproof Coating">
+                <img src="./includes/water.avif" alt="Waterproof Coating">
                 <div class="service-info">
                     <h3>Waterproof Coating</h3>
                     <p>Protect your walls from moisture and leakage.</p>
